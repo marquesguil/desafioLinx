@@ -1,7 +1,5 @@
 package com.linx.desafio.domain;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
@@ -17,32 +15,32 @@ public class Cliente implements Serializable {
     private String name;
     private String username;
     private String email;
-    private String telefone;
-    private String site;
+    private String phone;
+    private String website;
 
     /*Associação e relacionamento entre as entidades*/
     @OneToOne
     @JoinColumn(name = "endereco_id")
-    private Endereco endereco;
+    private Endereco address;
 
     @OneToOne
     @JoinColumn(name = "empresa_id")
-    private Empresa empresa;
+    private Empresa company;
 
     /*Métodos construtores*/
     public Cliente() {
     }
 
-    public Cliente(Integer id, String name, String username, String email, String telefone, String site, Endereco endereco, Empresa empresa) {
+    public Cliente(Integer id, String name, String username, String email, String phone, String website, Endereco address, Empresa company) {
         super();
         this.id = id;
         this.name = name;
         this.username = username;
         this.email = email;
-        this.telefone = telefone;
-        this.site = site;
-        this.endereco = endereco;
-        this.empresa = empresa;
+        this.phone = phone;
+        this.website = website;
+        this.address = address;
+        this.company = company;
     }
 
     /*Getters e Setters*/
@@ -83,36 +81,36 @@ public class Cliente implements Serializable {
         this.email = email;
     }
 
-    public String getTelefone() {
-        return telefone;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
-    public String getSite() {
-        return site;
+    public String getWebsite() {
+        return website;
     }
 
-    public void setSite(String site) {
-        this.site = site;
+    public void setWebsite(String website) {
+        this.website = website;
     }
 
-    public Endereco getEndereco() {
-        return endereco;
+    public Endereco getAddress() {
+        return address;
     }
 
-    public void setEndereco(Endereco endereco) {
-        this.endereco = endereco;
+    public void setAddress(Endereco address) {
+        this.address = address;
     }
 
-    public Empresa getEmpresa() {
-        return empresa;
+    public Empresa getCompany() {
+        return company;
     }
 
-    public void setEmpresa(Empresa empresa) {
-        this.empresa = empresa;
+    public void setCompany(Empresa company) {
+        this.company = company;
     }
 
     /*Hash e Equals*/

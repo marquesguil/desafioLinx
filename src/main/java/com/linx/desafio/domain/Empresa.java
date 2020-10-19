@@ -15,19 +15,19 @@ public class Empresa implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String nome;
-    private String frase;
+    private String name;
+    private String catchPhrase;
     private String bs;
 
     /*Construtores*/
     public Empresa() {
     }
 
-    public Empresa(Integer id, String nome, String frase, String bs) {
+    public Empresa(Integer id, String name, String catchPhrase, String bs) {
         super();
         this.id = id;
-        this.nome = nome;
-        this.frase = frase;
+        this.name = name;
+        this.catchPhrase = catchPhrase;
         this.bs = bs;
     }
 
@@ -44,20 +44,20 @@ public class Empresa implements Serializable {
         this.id = id;
     }
 
-    public String getNome() {
-        return nome;
+    public String getName() {
+        return name;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getFrase() {
-        return frase;
+    public String getCatchPhrase() {
+        return catchPhrase;
     }
 
-    public void setFrase(String frase) {
-        this.frase = frase;
+    public void setCatchPhrase(String catchPhrase) {
+        this.catchPhrase = catchPhrase;
     }
 
     public String getBs() {

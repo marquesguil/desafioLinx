@@ -1,7 +1,5 @@
 package com.linx.desafio.domain;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
@@ -14,10 +12,10 @@ public class Endereco implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String rua;
-    private String numero;
-    private String cidade;
-    private String cep;
+    private String street;
+    private String suite;
+    private String city;
+    private String zipcode;
 
     @OneToOne
     @JoinColumn(name = "geolocalizacao_id")
@@ -27,13 +25,13 @@ public class Endereco implements Serializable {
     public Endereco() {
     }
 
-    public Endereco(Integer id, String rua, String numero, String cidade, String cep, Geolocalizacao geolocalizacao) {
+    public Endereco(Integer id, String street, String suite, String city, String zipcode, Geolocalizacao geolocalizacao) {
         super();
         this.id = id;
-        this.rua = rua;
-        this.numero = numero;
-        this.cidade = cidade;
-        this.cep = cep;
+        this.street = street;
+        this.suite = suite;
+        this.city = city;
+        this.zipcode = zipcode;
         this.geolocalizacao = geolocalizacao;
     }
 
@@ -50,36 +48,36 @@ public class Endereco implements Serializable {
         this.id = id;
     }
 
-    public String getRua() {
-        return rua;
+    public String getStreet() {
+        return street;
     }
 
-    public void setRua(String rua) {
-        this.rua = rua;
+    public void setStreet(String street) {
+        this.street = street;
     }
 
-    public String getNumero() {
-        return numero;
+    public String getSuite() {
+        return suite;
     }
 
-    public void setNumero(String numero) {
-        this.numero = numero;
+    public void setSuite(String suite) {
+        this.suite = suite;
     }
 
-    public String getCidade() {
-        return cidade;
+    public String getCity() {
+        return city;
     }
 
-    public void setCidade(String cidade) {
-        this.cidade = cidade;
+    public void setCity(String city) {
+        this.city = city;
     }
 
-    public String getCep() {
-        return cep;
+    public String getZipcode() {
+        return zipcode;
     }
 
-    public void setCep(String cep) {
-        this.cep = cep;
+    public void setZipcode(String zipcode) {
+        this.zipcode = zipcode;
     }
 
     public Geolocalizacao getGeolocalizacao() {
