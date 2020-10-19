@@ -1,6 +1,8 @@
 package com.linx.desafio.DTO;
 
 import com.linx.desafio.domain.Cliente;
+import com.linx.desafio.domain.Empresa;
+import com.linx.desafio.domain.Endereco;
 
 import java.io.Serializable;
 
@@ -12,6 +14,10 @@ public class ClienteDTO implements Serializable {
     private String name;
     private String username;
     private String email;
+    //private Endereco address;
+    //private String phone;
+    //private String website;
+    //private Empresa company;
 
     public ClienteDTO() {
     }
@@ -21,6 +27,11 @@ public class ClienteDTO implements Serializable {
         name = obj.getName();
         username = obj.getUsername();
         email = obj.getEmail();
+        //address = obj.getAddress();
+        //phone = obj.getPhone();
+        //website = obj.getPhone();
+
+
     }
 
     public Integer getId() {

@@ -2,7 +2,6 @@ package com.linx.desafio.services;
 
 import com.linx.desafio.DTO.ClienteDTO;
 import com.linx.desafio.domain.Cliente;
-import com.linx.desafio.domain.Endereco;
 import com.linx.desafio.exception.ObjectNotFoundException;
 import com.linx.desafio.repositories.ClienteRepository;
 import com.linx.desafio.repositories.EmpresaRepository;
@@ -14,9 +13,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -35,24 +32,26 @@ public class ClienteService {
     @Autowired
     private GeolocalizacaoRepository geolocalizacaoRepository;
 
-    public Cliente buscar(Integer id) throws ObjectNotFoundException {
+    public Cliente find(Integer id) throws ObjectNotFoundException {
         Optional<Cliente> obj = repo.findById(id);
         return obj.orElseThrow(() -> new ObjectNotFoundException(
                 "Objeto não encontrado! Id: " + id + ", Tipo: " + Cliente.class.getName()));
     }
 
     public Cliente update(Cliente obj) {
-        buscar(obj.getId());
-        return repo.save(obj);
+        Cliente newObj = find(obj.getId());
+        updateData(newObj, obj);
+        find(obj.getId());
+        return repo.save(newObj);
     }
 
     public void delete(Integer id) {
-        buscar(id);
+        find(id);
         try {
             repo.deleteById(id);
         }
         catch (DataIntegrityViolationException e) {
-            throw new DataIntegrityViolationException("Não foi possível fazer a exclusão" + id);
+            throw new DataIntegrityViolationException("Não foi possível fazer a exclusão por que há entidades relacionadas" + id);
         }
     }
 
@@ -66,8 +65,13 @@ public class ClienteService {
     }
 
     public Cliente fromDTO(ClienteDTO objDto) {
-        throw new UnsupportedOperationException();
-        //return new Cliente(objDto.getId(), objDto.getName(), objDto.getEmail(), null, null, null, null, null);
+        //throw new UnsupportedOperationException();
+        return new Cliente(objDto.getId(), objDto.getName(), objDto.getUsername(), objDto.getEmail(), null, null, null, null);
+    }
+
+    private void updateData(Cliente newObj, Cliente obj){
+        newObj.setName(obj.getName());
+        newObj.setEmail(obj.getEmail());
     }
 
 }
