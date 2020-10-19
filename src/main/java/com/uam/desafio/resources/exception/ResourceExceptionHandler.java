@@ -1,8 +1,8 @@
-package com.linx.desafio.resources.exception;
+package com.uam.desafio.resources.exception;
 
 
 
-import com.linx.desafio.exception.ObjectNotFoundException;
+import com.uam.desafio.exception.ObjectNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;

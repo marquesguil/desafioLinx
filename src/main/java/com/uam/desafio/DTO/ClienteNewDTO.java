@@ -1,4 +1,4 @@
-package com.linx.desafio.DTO;
+package com.uam.desafio.DTO;
 
 public class ClienteNewDTO {
 }

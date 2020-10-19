@@ -1,26 +1,13 @@
-package com.linx.desafio;
+package com.uam.desafio;
 
-import com.google.gson.Gson;
-import com.linx.desafio.domain.Cliente;
-import com.linx.desafio.domain.Empresa;
-import com.linx.desafio.domain.Endereco;
-import com.linx.desafio.domain.Geolocalizacao;
-import com.linx.desafio.repositories.ClienteRepository;
-import com.linx.desafio.repositories.EmpresaRepository;
-import com.linx.desafio.repositories.EnderecoRepository;
-import com.linx.desafio.repositories.GeolocalizacaoRepository;
-import com.linx.desafio.services.ClienteService;
+import com.uam.desafio.repositories.ClienteRepository;
+import com.uam.desafio.repositories.EmpresaRepository;
+import com.uam.desafio.repositories.EnderecoRepository;
+import com.uam.desafio.repositories.GeolocalizacaoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.util.Arrays;
-import java.util.List;
 
 @SpringBootApplication
 public class DesafioApplication implements CommandLineRunner {

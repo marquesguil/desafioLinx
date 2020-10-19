@@ -1,12 +1,12 @@
-package com.linx.desafio.services;
+package com.uam.desafio.services;
 
-import com.linx.desafio.DTO.ClienteDTO;
-import com.linx.desafio.domain.Cliente;
-import com.linx.desafio.exception.ObjectNotFoundException;
-import com.linx.desafio.repositories.ClienteRepository;
-import com.linx.desafio.repositories.EmpresaRepository;
-import com.linx.desafio.repositories.EnderecoRepository;
-import com.linx.desafio.repositories.GeolocalizacaoRepository;
+import com.uam.desafio.DTO.ClienteDTO;
+import com.uam.desafio.domain.Cliente;
+import com.uam.desafio.exception.ObjectNotFoundException;
+import com.uam.desafio.repositories.ClienteRepository;
+import com.uam.desafio.repositories.EmpresaRepository;
+import com.uam.desafio.repositories.EnderecoRepository;
+import com.uam.desafio.repositories.GeolocalizacaoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Page;

@@ -1,9 +1,9 @@
-package com.linx.desafio.resources;
+package com.uam.desafio.resources;
 
-import com.linx.desafio.DTO.ClienteDTO;
-import com.linx.desafio.domain.Cliente;
-import com.linx.desafio.exception.ObjectNotFoundException;
-import com.linx.desafio.services.ClienteService;
+import com.uam.desafio.DTO.ClienteDTO;
+import com.uam.desafio.domain.Cliente;
+import com.uam.desafio.exception.ObjectNotFoundException;
+import com.uam.desafio.services.ClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
