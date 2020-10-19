@@ -19,20 +19,20 @@ public class Endereco implements Serializable {
 
     @OneToOne
     @JoinColumn(name = "geolocalizacao_id")
-    private Geolocalizacao geolocalizacao;
+    private Geolocalizacao geo;
 
     /*Construtores*/
     public Endereco() {
     }
 
-    public Endereco(Integer id, String street, String suite, String city, String zipcode, Geolocalizacao geolocalizacao) {
+    public Endereco(Integer id, String street, String suite, String city, String zipcode, Geolocalizacao geo) {
         super();
         this.id = id;
         this.street = street;
         this.suite = suite;
         this.city = city;
         this.zipcode = zipcode;
-        this.geolocalizacao = geolocalizacao;
+        this.geo = geo;
     }
 
     /*Getters e Setters*/
@@ -80,12 +80,12 @@ public class Endereco implements Serializable {
         this.zipcode = zipcode;
     }
 
-    public Geolocalizacao getGeolocalizacao() {
-        return geolocalizacao;
+    public Geolocalizacao getGeo() {
+        return geo;
     }
 
-    public void setGeolocalizacao(Geolocalizacao geolocalizacao) {
-        this.geolocalizacao = geolocalizacao;
+    public void setGeo(Geolocalizacao geo) {
+        this.geo = geo;
     }
 
     /*Hash e Equals*/

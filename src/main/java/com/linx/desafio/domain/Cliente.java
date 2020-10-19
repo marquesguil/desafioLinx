@@ -15,13 +15,12 @@ public class Cliente implements Serializable {
     private String name;
     private String username;
     private String email;
-    private String phone;
-    private String website;
 
-    /*Associação e relacionamento entre as entidades*/
     @OneToOne
     @JoinColumn(name = "endereco_id")
     private Endereco address;
+    private String phone;
+    private String website;
 
     @OneToOne
     @JoinColumn(name = "empresa_id")
@@ -97,14 +96,6 @@ public class Cliente implements Serializable {
         this.website = website;
     }
 
-    public Endereco getAddress() {
-        return address;
-    }
-
-    public void setAddress(Endereco address) {
-        this.address = address;
-    }
-
     public Empresa getCompany() {
         return company;
     }
@@ -113,8 +104,15 @@ public class Cliente implements Serializable {
         this.company = company;
     }
 
-    /*Hash e Equals*/
+    public Endereco getAddress() {
+        return address;
+    }
 
+    public void setAddress(Endereco address) {
+        this.address = address;
+    }
+
+    /*Hash e Equals*/
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
