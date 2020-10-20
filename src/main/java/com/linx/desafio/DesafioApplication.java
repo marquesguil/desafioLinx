@@ -8,8 +8,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class DesafioApplication implements CommandLineRunner {
 
-	private ClienteRepository clienteRepository;
-
 	public static void main(String[] args) {
 		SpringApplication.run(DesafioApplication.class, args);
 	}
