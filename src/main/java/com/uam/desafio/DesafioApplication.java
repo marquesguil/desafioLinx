@@ -1,5 +1,7 @@
 package com.uam.desafio;
 
+import com.google.gson.Gson;
+import com.uam.desafio.domain.Cliente;
 import com.uam.desafio.repositories.ClienteRepository;
 import com.uam.desafio.repositories.EmpresaRepository;
 import com.uam.desafio.repositories.EnderecoRepository;
@@ -9,8 +11,17 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.Arrays;
+import java.util.List;
+
 @SpringBootApplication
 public class DesafioApplication implements CommandLineRunner {
+
+	private ClienteRepository clienteRepository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(DesafioApplication.class, args);
@@ -18,47 +29,5 @@ public class DesafioApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		/*String urlToRead = "http://jsonplaceholder.typicode.com/users";
-
-		StringBuilder result = new StringBuilder();
-		URL url = new URL(urlToRead);
-
-		HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-		conn.setRequestMethod("GET");
-
-		BufferedReader rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-
-		String line = "";
-		while ((line = rd.readLine()) != null) {
-			result.append(line);
-		}
-
-		rd.close();
-
-		Gson gson = new Gson();
-
-		ClienteNewDTO[] c = gson.fromJson(String.valueOf(result), ClienteNewDTO[].class);
-		List<ClienteNewDTO> clientes = Arrays.asList(c);
-
-		for (ClienteNewDTO x: clientes) {
-			clienteRepository.saveAll(x);
-		}
-
-
-		/*
-		clienteRepository.saveAll(clientes);
-/*
-		Endereco[] e = gson.fromJson(String.valueOf(result), Endereco[].class);
-		List<Endereco> enderecos = Arrays.asList(e);
-		enderecoRepository.saveAll(enderecos);
-
-		Geolocalizacao[] g = gson.fromJson(String.valueOf(result), Geolocalizacao[].class);
-		List<Geolocalizacao> geos = Arrays.asList(g);
-		geolocalizacaoRepository.saveAll(geos);
-
-		Empresa[] emp = gson.fromJson(String.valueOf(result), Empresa[].class);
-		List<Empresa> empresas = Arrays.asList(emp);
-		empresaRepository.saveAll(empresas);
-*/
 	}
 }

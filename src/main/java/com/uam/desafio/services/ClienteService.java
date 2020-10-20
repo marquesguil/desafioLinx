@@ -70,7 +70,8 @@ public class ClienteService {
     }
 
     public List<Cliente> findAll() {
-        return repo.findAll();
+        List<Cliente> obj = repo.findAll();
+        return obj;
     }
 
     public Page<Cliente> findPage(Integer page, Integer linesPerPage, String orderBy, String direction) {
@@ -96,7 +97,7 @@ public class ClienteService {
     }
 
     private void updateData(Cliente newObj, Cliente obj){
-        newObj.setClienteName(obj.getClienteName());
+        newObj.setName(obj.getName());
         newObj.setEmail(obj.getEmail());
         newObj.setPhone(obj.getPhone());
         newObj.setWebsite(obj.getWebsite());
