@@ -22,7 +22,7 @@ public class ClienteService {
 
     @Autowired
     private ClienteRepository repo;
-
+/*
     @Autowired
     private EmpresaRepository empresaRepository;
 
@@ -31,7 +31,7 @@ public class ClienteService {
 
     @Autowired
     private GeolocalizacaoRepository geolocalizacaoRepository;
-
+*/
     public Cliente find(Integer id) throws ObjectNotFoundException {
         Optional<Cliente> obj = repo.findById(id);
         return obj.orElseThrow(() -> new ObjectNotFoundException(
