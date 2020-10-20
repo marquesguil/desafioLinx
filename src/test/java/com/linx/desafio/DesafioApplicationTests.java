@@ -1,4 +1,4 @@
-package com.uam.desafio;
+package com.linx.desafio;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,4 +1,4 @@
-package com.uam.desafio.DTO;
+package com.linx.desafio.DTO;
 
 import java.io.Serializable;
 

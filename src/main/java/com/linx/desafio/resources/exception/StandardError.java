@@ -1,4 +1,4 @@
-package com.uam.desafio.resources.exception;
+package com.linx.desafio.resources.exception;
 
 import java.io.Serializable;
 

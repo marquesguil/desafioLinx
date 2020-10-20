@@ -1,6 +1,6 @@
-package com.uam.desafio.repositories;
+package com.linx.desafio.repositories;
 
-import com.uam.desafio.domain.Geolocalizacao;
+import com.linx.desafio.domain.Geolocalizacao;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

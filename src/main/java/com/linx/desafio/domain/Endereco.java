@@ -1,6 +1,4 @@
-package com.uam.desafio.domain;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
+package com.linx.desafio.domain;
 
 import javax.persistence.*;
 import java.io.Serializable;

@@ -1,4 +1,4 @@
-package com.uam.desafio.exception;
+package com.linx.desafio.exception;
 
 public class ObjectNotFoundException extends RuntimeException{
     private static final long serialVersionUID = 1L;

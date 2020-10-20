@@ -1,4 +1,4 @@
-package com.uam.desafio.domain;
+package com.linx.desafio.domain;
 
 import javax.persistence.*;
 import java.io.Serializable;

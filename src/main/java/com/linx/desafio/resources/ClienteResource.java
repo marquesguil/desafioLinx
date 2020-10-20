@@ -1,12 +1,9 @@
-package com.uam.desafio.resources;
+package com.linx.desafio.resources;
 
-import com.uam.desafio.DTO.ClienteNewDTO;
-import com.uam.desafio.exception.ObjectNotFoundException;
-import com.uam.desafio.services.ClienteService;
-import com.uam.desafio.DTO.ClienteDTO;
-import com.uam.desafio.domain.Cliente;
+import com.linx.desafio.domain.Cliente;
+import com.linx.desafio.exception.ObjectNotFoundException;
+import com.linx.desafio.services.ClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +11,6 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping(value = "/cliente")

@@ -1,6 +1,6 @@
-package com.uam.desafio.DTO;
+package com.linx.desafio.DTO;
 
-import com.uam.desafio.domain.Cliente;
+import com.linx.desafio.domain.Cliente;
 
 import java.io.Serializable;
 

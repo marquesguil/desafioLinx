@@ -1,4 +1,4 @@
-package com.uam.desafio.domain;
+package com.linx.desafio.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,27 +8,25 @@ import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
-public class Empresa implements Serializable {
+public class Geolocalizacao implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /*Atributos*/
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String name;
-    private String catchPhrase;
-    private String bs;
+    private String lat;
+    private String lng;
 
     /*Construtores*/
-    public Empresa() {
+    public Geolocalizacao() {
     }
 
-    public Empresa(Integer id, String name, String catchPhrase, String bs) {
+    public Geolocalizacao(Integer id, String lat, String lng) {
         super();
         this.id = id;
-        this.name = name;
-        this.catchPhrase = catchPhrase;
-        this.bs = bs;
+        this.lat = lat;
+        this.lng = lng;
     }
 
     /*Getters e Setters*/
@@ -44,28 +42,20 @@ public class Empresa implements Serializable {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getLat() {
+        return lat;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setLat(String lat) {
+        this.lat = lat;
     }
 
-    public String getCatchPhrase() {
-        return catchPhrase;
+    public String getLng() {
+        return lng;
     }
 
-    public void setCatchPhrase(String catchPhrase) {
-        this.catchPhrase = catchPhrase;
-    }
-
-    public String getBs() {
-        return bs;
-    }
-
-    public void setBs(String bs) {
-        this.bs = bs;
+    public void setLng(String lng) {
+        this.lng = lng;
     }
 
     /*Hash e Equals*/
@@ -73,8 +63,8 @@ public class Empresa implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Empresa empresa = (Empresa) o;
-        return Objects.equals(id, empresa.id);
+        Geolocalizacao that = (Geolocalizacao) o;
+        return Objects.equals(id, that.id);
     }
 
     @Override

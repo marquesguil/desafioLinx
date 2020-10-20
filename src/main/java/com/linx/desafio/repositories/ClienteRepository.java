@@ -1,6 +1,6 @@
-package com.uam.desafio.repositories;
+package com.linx.desafio.repositories;
 
-import com.uam.desafio.domain.Cliente;
+import com.linx.desafio.domain.Cliente;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
