@@ -1,15 +1,18 @@
 package com.uam.desafio.resources;
 
-import com.uam.desafio.DTO.ClienteDTO;
-import com.uam.desafio.domain.Cliente;
+import com.uam.desafio.DTO.ClienteNewDTO;
 import com.uam.desafio.exception.ObjectNotFoundException;
 import com.uam.desafio.services.ClienteService;
+import com.uam.desafio.DTO.ClienteDTO;
+import com.uam.desafio.domain.Cliente;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.net.URI;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -26,13 +29,15 @@ public class ClienteResource {
         return ResponseEntity.ok().body(obj);
     }
 
-    /*
+
     @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<Void> insert(@RequestBody Cliente obj){
+    public ResponseEntity<Void> insert(@Validated @RequestBody ClienteNewDTO objDto){
+        Cliente obj = service.fromDTO(objDto);
         obj = service.insert(obj);
-        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri();
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
+                .path("/{id}").buildAndExpand(obj.getId()).toUri();
         return ResponseEntity.created(uri).build();
-    }*/
+    }
 
     @RequestMapping(value="/{id}", method = RequestMethod.PUT)
     public ResponseEntity<Void> update(@Validated @RequestBody ClienteDTO objDto, @PathVariable Integer id) {

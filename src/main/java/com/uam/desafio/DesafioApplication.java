@@ -12,26 +12,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class DesafioApplication implements CommandLineRunner {
 
-	@Autowired
-	private ClienteRepository clienteRepository;
-
-	@Autowired
-	private EmpresaRepository empresaRepository;
-
-	@Autowired
-	private EnderecoRepository enderecoRepository;
-
-	@Autowired
-	private GeolocalizacaoRepository geolocalizacaoRepository;
-
-
 	public static void main(String[] args) {
 		SpringApplication.run(DesafioApplication.class, args);
 	}
 
 	@Override
 	public void run(String... args) throws Exception {
-	/*	String urlToRead = "http://jsonplaceholder.typicode.com/users";
+		/*String urlToRead = "http://jsonplaceholder.typicode.com/users";
 
 		StringBuilder result = new StringBuilder();
 		URL url = new URL(urlToRead);
@@ -50,11 +37,11 @@ public class DesafioApplication implements CommandLineRunner {
 
 		Gson gson = new Gson();
 
-		Cliente[] c = gson.fromJson(String.valueOf(result), Cliente[].class);
-		List<Cliente> clientes = Arrays.asList(c);
+		ClienteNewDTO[] c = gson.fromJson(String.valueOf(result), ClienteNewDTO[].class);
+		List<ClienteNewDTO> clientes = Arrays.asList(c);
 
-		for (Cliente x: clientes) {
-			clienteRepository.save(x);
+		for (ClienteNewDTO x: clientes) {
+			clienteRepository.saveAll(x);
 		}
 
 
@@ -73,7 +60,5 @@ public class DesafioApplication implements CommandLineRunner {
 		List<Empresa> empresas = Arrays.asList(emp);
 		empresaRepository.saveAll(empresas);
 */
-
-
 	}
 }

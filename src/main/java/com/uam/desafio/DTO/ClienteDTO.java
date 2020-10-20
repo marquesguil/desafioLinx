@@ -13,8 +13,8 @@ public class ClienteDTO implements Serializable {
     private String username;
     private String email;
     //private Endereco address;
-    //private String phone;
-    //private String website;
+    private String phone;
+    private String website;
     //private Empresa company;
 
     public ClienteDTO() {
@@ -22,12 +22,12 @@ public class ClienteDTO implements Serializable {
 
     public ClienteDTO(Cliente obj){
         id = obj.getId();
-        name = obj.getName();
+        name = obj.getClienteName();
         username = obj.getUsername();
         email = obj.getEmail();
         //address = obj.getAddress();
-        //phone = obj.getPhone();
-        //website = obj.getPhone();
+        phone = obj.getPhone();
+        website = obj.getPhone();
 
 
     }
@@ -62,5 +62,21 @@ public class ClienteDTO implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getWebsite() {
+        return website;
+    }
+
+    public void setWebsite(String website) {
+        this.website = website;
     }
 }

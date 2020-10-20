@@ -12,7 +12,7 @@ public class Cliente implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String name;
+    private String clienteName;
     private String username;
     private String email;
 
@@ -30,10 +30,10 @@ public class Cliente implements Serializable {
     public Cliente() {
     }
 
-    public Cliente(Integer id, String name, String username, String email, String phone, String website, Endereco address, Empresa company) {
+    public Cliente(Integer id, String clienteName, String username, String email, String phone, String website, Endereco address, Empresa company) {
         super();
         this.id = id;
-        this.name = name;
+        this.clienteName = clienteName;
         this.username = username;
         this.email = email;
         this.phone = phone;
@@ -56,12 +56,12 @@ public class Cliente implements Serializable {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getClienteName() {
+        return clienteName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setClienteName(String clienteName) {
+        this.clienteName = clienteName;
     }
 
     public String getUsername() {

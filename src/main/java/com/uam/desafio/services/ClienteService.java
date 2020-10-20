@@ -1,8 +1,12 @@
 package com.uam.desafio.services;
 
+import com.uam.desafio.DTO.ClienteNewDTO;
+import com.uam.desafio.domain.Empresa;
+import com.uam.desafio.domain.Endereco;
+import com.uam.desafio.domain.Geolocalizacao;
+import com.uam.desafio.exception.ObjectNotFoundException;
 import com.uam.desafio.DTO.ClienteDTO;
 import com.uam.desafio.domain.Cliente;
-import com.uam.desafio.exception.ObjectNotFoundException;
 import com.uam.desafio.repositories.ClienteRepository;
 import com.uam.desafio.repositories.EmpresaRepository;
 import com.uam.desafio.repositories.EnderecoRepository;
@@ -13,6 +17,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -22,20 +27,29 @@ public class ClienteService {
 
     @Autowired
     private ClienteRepository repo;
-/*
-    @Autowired
-    private EmpresaRepository empresaRepository;
 
     @Autowired
     private EnderecoRepository enderecoRepository;
 
     @Autowired
+    private EmpresaRepository empresaRepository;
+
+    @Autowired
     private GeolocalizacaoRepository geolocalizacaoRepository;
-*/
+
     public Cliente find(Integer id) throws ObjectNotFoundException {
         Optional<Cliente> obj = repo.findById(id);
         return obj.orElseThrow(() -> new ObjectNotFoundException(
                 "Objeto não encontrado! Id: " + id + ", Tipo: " + Cliente.class.getName()));
+    }
+
+    @Transactional
+    public Cliente insert(Cliente obj) {
+        obj.setId(null);
+        obj = repo.save(obj);
+        enderecoRepository.save(obj.getAddress());
+        empresaRepository.save(obj.getCompany());
+        return obj;
     }
 
     public Cliente update(Cliente obj) {
@@ -65,13 +79,28 @@ public class ClienteService {
     }
 
     public Cliente fromDTO(ClienteDTO objDto) {
-        //throw new UnsupportedOperationException();
-        return new Cliente(objDto.getId(), objDto.getName(), objDto.getUsername(), objDto.getEmail(), null, null, null, null);
+        return new Cliente(objDto.getId(), objDto.getName(),
+                objDto.getUsername(), objDto.getEmail(), objDto.getPhone(),
+                objDto.getWebsite(), null, null);
+    }
+
+    public Cliente fromDTO(ClienteNewDTO objDto) {
+        Empresa emp = new Empresa(null, objDto.getName(), objDto.getCatchPhrase(), objDto.getBs());
+        Geolocalizacao geo = new Geolocalizacao(null, objDto.getLat(), objDto.getLng());
+        //Geolocalizacao geo = new Geolocalizacao(objDto.getGeoId(), null, null);
+        Endereco end = new Endereco(null, objDto.getStreet(), objDto.getSuite(), objDto.getCity(), objDto.getZipcode(), geo);
+        Cliente cli = new Cliente(null, objDto.getClienteName(), objDto.getEmail(), objDto.getUsername(), objDto.getPhone(), objDto.getWebsite(), end, emp);
+        //cli.getAddress().getClass(end);
+        //cli.getCompany().add(emp);
+        return cli;
     }
 
     private void updateData(Cliente newObj, Cliente obj){
-        newObj.setName(obj.getName());
+        newObj.setClienteName(obj.getClienteName());
         newObj.setEmail(obj.getEmail());
+        newObj.setPhone(obj.getPhone());
+        newObj.setWebsite(obj.getWebsite());
+        newObj.setUsername(obj.getUsername());
     }
 
 }
