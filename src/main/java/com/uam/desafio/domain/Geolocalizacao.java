@@ -15,14 +15,14 @@ public class Geolocalizacao implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private Double lat;
-    private Double lng;
+    private String lat;
+    private String lng;
 
     /*Construtores*/
     public Geolocalizacao() {
     }
 
-    public Geolocalizacao(Integer id, Double lat, Double lng) {
+    public Geolocalizacao(Integer id, String lat, String lng) {
         super();
         this.id = id;
         this.lat = lat;
@@ -42,19 +42,19 @@ public class Geolocalizacao implements Serializable {
         this.id = id;
     }
 
-    public Double getLat() {
+    public String getLat() {
         return lat;
     }
 
-    public void setLat(Double lat) {
+    public void setLat(String lat) {
         this.lat = lat;
     }
 
-    public Double getLng() {
+    public String getLng() {
         return lng;
     }
 
-    public void setLng(Double lng) {
+    public void setLng(String lng) {
         this.lng = lng;
     }
 

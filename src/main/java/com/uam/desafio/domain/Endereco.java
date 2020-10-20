@@ -17,7 +17,7 @@ public class Endereco implements Serializable {
     private String city;
     private String zipcode;
 
-    @OneToOne
+    @OneToOne(cascade = {CascadeType.ALL})
     @JoinColumn(name = "geolocalizacao_id")
     private Geolocalizacao geo;
 

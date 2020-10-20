@@ -20,8 +20,8 @@ public class ClienteNewDTO implements Serializable {
     private String catchPhrase;
     private String bs;
 
-    private Double lat;
-    private Double lng;
+    private String lat;
+    private String lng;
 
     public ClienteNewDTO() {
     }
@@ -58,19 +58,19 @@ public class ClienteNewDTO implements Serializable {
         this.bs = bs;
     }
 
-    public Double getLat() {
+    public String getLat() {
         return lat;
     }
 
-    public void setLat(Double lat) {
+    public void setLat(String lat) {
         this.lat = lat;
     }
 
-    public Double getLng() {
+    public String getLng() {
         return lng;
     }
 
-    public void setLng(Double lng) {
+    public void setLng(String lng) {
         this.lng = lng;
     }
 
